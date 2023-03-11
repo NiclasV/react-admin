@@ -8,6 +8,7 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
@@ -15,11 +16,35 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
+const Item = ({ title, to, icon, selected, setSelected }) => {
+	const theme = useTheme();
+	const colors = tokens(theme.palette.mode);
+
+	return (
+		<MenuItem
+			active={selected === title}
+			style={{
+				color: colors.gray[400],
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center",
+				height: "auto",
+				paddingLeft: "0px",
+			}}
+			component={<Link to={to} />}
+			onClick={() => setSelected(title)}
+			icon={icon}
+		>
+			<Typography fontSize='16px'>{title}</Typography>
+		</MenuItem>
+	);
+};
+
 const ProSidebar = () => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const { collapseSidebar, collapsed } = useProSidebar();
-	// const [selected, setSelected] = useState("Dashboard");
+	const [selected, setSelected] = useState("Dashboard");
 
 	var sidebarStyle = {
 		border: "none",
@@ -43,7 +68,7 @@ const ProSidebar = () => {
 
 			{/* Avtar/name */}
 			{!collapsed && (
-				<Box mb='25px'>
+				<Box mb='20px'>
 					<Box
 						display='flex'
 						justifyContent='center'
@@ -70,13 +95,89 @@ const ProSidebar = () => {
 						>
 							Niclas V
 						</Typography>
-						<Typography>Admin stuff</Typography>
+						<Typography color={colors.greenAccent[300]}>Admin stuff</Typography>
 					</Box>
 				</Box>
 			)}
 			{/* MENU */}
 			<Menu>
-				<MenuItem></MenuItem>
+				<Item
+					title='Dashboard'
+					icon={<HomeOutlinedIcon />}
+					to='/'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Manage team'
+					icon={<PeopleOutlinedIcon />}
+					to='/team'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Contacts information'
+					icon={<ContactsOutlinedIcon />}
+					to='/contacts'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Invoices balances'
+					icon={<ReceiptOutlinedIcon />}
+					to='/invoices'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Profile form'
+					icon={<PersonOutlinedIcon />}
+					to='/form'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Calendar'
+					icon={<CalendarTodayOutlinedIcon />}
+					to='/calendar'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='FAQ Page'
+					icon={<HelpOutlinedIcon />}
+					to='/faq'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Bar chart'
+					icon={<BarChartOutlinedIcon />}
+					to='/bar'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Pie chart'
+					icon={<PieChartOutlinedIcon />}
+					to='/pie'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Line chart'
+					icon={<TimelineOutlinedIcon />}
+					to='/line'
+					selected={selected}
+					setSelected={setSelected}
+				/>
+				<Item
+					title='Geography chart'
+					icon={<MapOutlinedIcon />}
+					to='/geography'
+					selected={selected}
+					setSelected={setSelected}
+				/>
 			</Menu>
 		</Sidebar>
 	);
