@@ -83,7 +83,6 @@ const ProSidebar = () => {
                <MenuOutlinedIcon />
             </IconButton>
          </Box>
-
          {/* Avtar/name */}
          {!collapsed && (
             <Box mb="20px">
@@ -142,7 +141,6 @@ const ProSidebar = () => {
             ) : (
                ""
             )}
-
             <Item
                title="Manage team"
                icon={<PeopleOutlinedIcon />}
@@ -178,7 +176,6 @@ const ProSidebar = () => {
             ) : (
                ""
             )}
-
             <Item
                title="Profile form"
                icon={<PersonOutlinedIcon />}
@@ -214,7 +211,6 @@ const ProSidebar = () => {
             ) : (
                ""
             )}
-
             <Item
                title="Bar chart"
                icon={<BarChartOutlinedIcon />}

@@ -1,17 +1,16 @@
 import { Typography, Box, useTheme } from "@mui/material";
+import Header from "../../components/Header";
 import { tokens } from "../../theme";
 
 const Dashboard = () => {
-	const theme = useTheme();
-	const colors = tokens(theme.palette.mode);
+   const theme = useTheme();
+   const colors = tokens(theme.palette.mode);
 
-	return (
-		<Box p={3}>
-			<Typography variant='h1' color={colors.primary[500]}>
-				Dashboard
-			</Typography>
-		</Box>
-	);
+   return (
+      <Box p={3}>
+         <Header title="dashboard" subtitle="Just some admin stuff" />
+      </Box>
+   );
 };
 
 export default Dashboard;
