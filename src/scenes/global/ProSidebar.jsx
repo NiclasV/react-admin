@@ -15,6 +15,7 @@ import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import { color } from "@mui/system";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
    const theme = useTheme();
@@ -55,8 +56,19 @@ const ProSidebar = () => {
       [`.ps-menu-label.ps-active, .ps-menu-icon.ps-active`]: {
          color: colors.primary[500],
       },
+      [`.ps-menuitem-root:hover .ps-menu-icon, .ps-menuitem-root:hover .ps-menu-label`]:
+         {
+            color: colors.primary[300],
+         },
+      [`.ps-menuitem-root:hover .ps-menu-icon.ps-active, .ps-menuitem-root:hover .ps-menu-label.ps-active`]:
+         {
+            color: colors.primary[500],
+         },
       [`.ps-menu-icon`]: {
          marginRight: collapsed ? "0px" : "5px ",
+      },
+      [`.ps-menu-button:hover`]: {
+         backgroundColor: colors.gray[800],
       },
    };
 
@@ -101,7 +113,7 @@ const ProSidebar = () => {
                   >
                      Niclas V
                   </Typography>
-                  <Typography color={colors.greenAccent[300]}>
+                  <Typography color={colors.greenAccent[400]}>
                      Admin stuff
                   </Typography>
                </Box>
@@ -120,7 +132,7 @@ const ProSidebar = () => {
                <Typography
                   variant="h3"
                   fontSize="16px"
-                  color={colors.greenAccent[300]}
+                  color={colors.greenAccent[400]}
                   sx={{
                      m: "15px 5px 5px 5px",
                   }}
@@ -156,7 +168,7 @@ const ProSidebar = () => {
                <Typography
                   variant="h3"
                   fontSize="16px"
-                  color={colors.greenAccent[300]}
+                  color={colors.greenAccent[400]}
                   sx={{
                      m: "15px 5px 5px 5px",
                   }}
@@ -192,7 +204,7 @@ const ProSidebar = () => {
                <Typography
                   variant="h3"
                   fontSize="16px"
-                  color={colors.greenAccent[300]}
+                  color={colors.greenAccent[400]}
                   sx={{
                      m: "15px 5px 5px 5px",
                   }}
