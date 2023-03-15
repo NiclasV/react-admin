@@ -70,7 +70,7 @@ const Team = () => {
 
    return (
       <Box p={3}>
-         <Header title="Team" subtitle="teamstuff" />
+         <Header title="Team" subtitle="Team related" />
          <Box
             pb={4}
             sx={{
